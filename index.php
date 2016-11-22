@@ -37,7 +37,7 @@
         if( isset($_POST['idea']) && !empty($_POST['idea']) )
         {
             $_POST['idea'] = mysqli_real_escape_string($db, $_POST['idea']);
-            mysqli_query($db, "INSERT INTO ideas (groupname, idea, likes, dislikes, active, cookie, ip, email) VALUES (NULL, '" . mysqli_real_escape_string($_POST['idea']) . "', 0, 0, 1, '" . mysqli_real_escape_string($_COOKIE['user']) . "', '" . mysqli_real_escape_string($_SERVER['REMOTE_ADDR']) . "', '" . mysqli_real_escape_string($_POST['email']) . "')");
+            mysqli_query($db, "INSERT INTO ideas (groupname, idea, likes, dislikes, active, cookie, ip, email) VALUES (NULL, '" . $_POST['idea'] . "', 0, 0, 1, '" . mysqli_real_escape_string($_COOKIE['user']) . "', '" . mysqli_real_escape_string($_SERVER['REMOTE_ADDR']) . "', '" . mysqli_real_escape_string($_POST['email']) . "')");
             
             $headers = "";
             if( !empty($_POST['email']) )
